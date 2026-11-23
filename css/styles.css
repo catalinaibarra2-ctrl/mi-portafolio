@@ -1,0 +1,676 @@
+@font-face {
+  font-family: "Roots";
+  src: local("Roots"), local("Roots Regular"),
+       url("../fonts/Roots.woff2") format("woff2"),
+       url("../fonts/Roots.otf") format("opentype"),
+       url("../fonts/Roots.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* -- Variables -- */
+:root {
+  --lienzo: 1512px;
+  --morado: #480c79;
+  --verde: #879881;
+  --cafe-gris: #92857d;
+  --negro: #000000;
+  --blanco: #ffffff;
+  --fuente-titulo: "Roots", "Georgia", cursive;
+  --fuente-texto: "Playfair Display", "Georgia", serif;
+}
+
+/* -- Base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fuente-texto);
+  font-weight: 400;
+  color: var(--negro);
+  background: #e9ece6;
+}
+
+body.fondo-blanco {
+  background: var(--blanco);
+}
+
+h1,
+p {
+  margin: 0;
+  font-weight: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+video {
+  display: block;
+}
+
+.lienzo {
+  position: relative;
+  width: var(--lienzo);
+  margin: 0 auto;
+  overflow: hidden;
+  zoom: var(--escala, 1);
+}
+
+.lienzo > * {
+  position: absolute;
+}
+
+.foto {
+  overflow: hidden;
+}
+
+.foto img {
+  position: absolute;
+  max-width: none;
+}
+
+.foto img.cubrir {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+a.foto {
+  cursor: pointer;
+  transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+a.foto:hover {
+  filter: brightness(1.06);
+}
+
+.video {
+  object-fit: cover;
+  background: #d9d9d9;
+}
+
+.texto {
+  line-height: normal;
+  overflow-wrap: break-word;
+}
+
+/* Texto centrado */
+.centro {
+  text-align: center;
+  transform: translateX(-50%);
+}
+
+.titulo-roots {
+  font-family: var(--fuente-titulo);
+  font-size: 64px;
+  font-weight: normal;
+}
+
+/* icono "C" */
+.logo {
+  font-family: var(--fuente-titulo);
+  font-size: 64px;
+  line-height: normal;
+  width: 54px;
+  text-align: center;
+  z-index: 5;
+  transition: transform 0.2s ease;
+}
+
+.logo:hover {
+  transform: scale(1.08);
+}
+
+.logo.con-sombra {
+  width: 73px;
+  filter: drop-shadow(12px 5px 2px rgba(0, 0, 0, 0.25));
+}
+
+/* Títulos y textos de las páginas de proyecto */
+.proy-titulo {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 2.8px;
+}
+
+.proy-desc {
+  font-size: 32px;
+}
+
+.proy-nota {
+  font-size: 24px;
+}
+
+.t32 { font-size: 32px; }
+.t36 { font-size: 36px; }
+
+/* ===================
+   HOME
+   =================*/
+.pag-home .lienzo {
+  background: #6f8f3f; 
+}
+
+.fondo-video {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-titulo {
+  font-family: var(--fuente-titulo);
+  font-size: 98px;
+  font-weight: normal;
+  color: var(--blanco);
+  text-align: center;
+  height: 232px;
+}
+
+/* Gemas flotando  */
+.home-gema {
+  animation: flotar 2.05s infinite alternate;
+}
+
+.home-gema-1 { --desde: -54px;  --hasta: -149px; animation-timing-function: linear; }
+.home-gema-2 { --desde: -101px; --hasta: 5px;    animation-timing-function: ease-out; }
+.home-gema-3 { --desde: 30px;   --hasta: -72px;  animation-timing-function: linear; }
+.home-gema-4 { --desde: -130px; --hasta: 2px;    animation-timing-function: ease-out; }
+
+@keyframes flotar {
+  from { transform: translateY(var(--desde)); }
+  to   { transform: translateY(var(--hasta)); }
+}
+
+.home-gema:hover {
+  filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.8));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-gema { animation: none; }
+}
+
+/* ====================
+   SOBRE MÍ
+   ==================== */
+.fondo-img {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: bottom;
+}
+
+.velo {
+  inset: 0;
+  background: rgba(217, 217, 217, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.sobre-titulo {
+  color: var(--verde-salvia);
+  height: 74px;
+}
+
+.sobre-marco {
+  left: 151px;
+  top: 249px;
+  width: 398px;
+  height: 300px;
+  background: var(--blanco);
+  padding: 7px 9px 8px;
+}
+
+.sobre-marco img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sobre-intro,
+.sobre-conoc,
+.sobre-skill {
+  font-size: 24px;
+  color: var(--negro);
+}
+
+.sobre-skill {
+  white-space: nowrap;
+}
+
+.sobre-blanco {
+  font-size: 24px;
+  color: var(--blanco);
+  white-space: nowrap;
+}
+
+/* ==============
+   TRABAJOS
+   =============== */
+.trab-081 {
+  left: 1018px;
+  top: 491px;
+  width: 330px;
+  height: 426px;
+  cursor: pointer;
+  transition: filter 0.25s ease;
+}
+
+.trab-081:hover {
+  filter: brightness(1.06);
+}
+
+.trab-081-pag {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+}
+
+.trab-081-pag img {
+  position: absolute;
+  max-width: none;
+  height: 106.78%;
+  top: -4.67%;
+}
+
+.trab-081-izq {
+  left: 0;
+  width: 50.3%;
+  aspect-ratio: 596 / 1520;
+}
+
+.trab-081-izq img {
+  left: -6.21%;
+  width: 113.59%;
+}
+
+.trab-081-der {
+  left: 49.4%;
+  width: 50.6%;
+  aspect-ratio: 598 / 1520;
+}
+
+.trab-081-der img {
+  left: -5.35%;
+  width: 113.21%;
+}
+
+/* ==============
+   CONTACTO
+   =========== */
+.fondo-recorte {
+  inset: 0;
+  overflow: hidden;
+}
+
+.fondo-recorte img {
+  position: absolute;
+  max-width: none;
+  width: 103%;
+  height: 118.94%;
+  left: -3%;
+  top: -3.05%;
+}
+
+.contacto-recuadro {
+  left: 358px;
+  top: 272px;
+  width: 796px;
+  height: 438px;
+}
+
+.contacto-titulo {
+  color: var(--morado);
+  white-space: nowrap;
+}
+
+.contacto-dato {
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--blanco);
+}
+
+.contacto-dato a:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.contacto-linea-1 {
+  left: 411px;
+  top: 446px;
+  width: 690px;
+  transform: rotate(-0.17deg);
+}
+
+.contacto-linea-2 {
+  left: 552px;
+  top: 633px;
+  width: 409px;
+}
+
+/* ==============
+   DIBUJOS
+   ============= */
+.dib-titulo {
+  color: var(--verde);
+  height: 74px;
+}
+
+/* ==================
+   ENTREJUEGOS
+   ================== */
+.ej-instrucciones {
+  left: 105px;
+  top: 1141px;
+  width: 1226px;
+  font-size: 24px;
+  line-height: normal;
+}
+
+.ej-instrucciones strong {
+  font-weight: 500;
+}
+
+
+/* ========================
+   POSICIONES DE PANTALLA 
+   ========================== */
+
+/* ===== Catalina Ibarra Valderrama  ===== */
+.pag-home .lienzo { height: 982px; }
+.home-1 { left: 339px; top: 233px; width: 833px; }
+.home-2 { left: 115px; top: 609px; width: 312px; height: 299px; }
+.home-2 img { width: 218.28%; height: 228.09%; left: -36.83%; top: -47.75%; }
+.home-3 { left: 476px; top: 616px; width: 246px; height: 268.681px; }
+.home-3 img { width: 193.97%; height: 177.6%; left: -47.16%; top: -30.52%; }
+.home-4 { left: 846px; top: 589px; width: 190px; height: 273.125px; }
+.home-4 img { width: 246.88%; height: 171.74%; left: -76.04%; top: -34.78%; }
+.home-5 { left: 1160px; top: 612px; width: 236px; height: 276.38px; }
+.home-5 img { width: 212.93%; height: 181.82%; left: -63.5%; top: -25.65%; }
+
+/* ===== Sobre mí  ===== */
+.pag-sobre .lienzo { height: 1984px; }
+.sobre-1 { left: 310px; top: 125px; width: 300px; }
+.sobre-2 { left: 963.5px; top: 289px; width: 661px; }
+.sobre-3 { left: 741px; top: 459px; width: 239px; }
+.sobre-4 { left: 967px; top: 490px; }
+.sobre-5 { left: 1087px; top: 535px; }
+.sobre-6 { left: 1174px; top: 583px; }
+.sobre-7 { left: 1126px; top: 626px; }
+.sobre-8 { left: 127px; top: 818px; width: 734px; }
+.sobre-9 { left: 228px; top: 997px; width: 600px; }
+.sobre-10 { left: 249px; top: 1177px; }
+.sobre-11 { left: 384px; top: 1302px; }
+.sobre-12 { left: 489px; top: 1341px; }
+.sobre-13 { left: 674px; top: 1354px; }
+.sobre-14 { left: 745px; top: 1386px; }
+.sobre-15 { left: 798px; top: 1425px; }
+.sobre-16 { left: 922px; top: 1464px; }
+.sobre-17 { left: 866px; top: 1519px; }
+.sobre-18 { left: 647px; top: 1575px; }
+.sobre-19 { left: 648px; top: 1630px; }
+.sobre-20 { left: 647px; top: 1707px; }
+.sobre-21 { left: 347px; top: 1784px; }
+.sobre-22 { left: 31px; top: 38px; }
+.sobre-22 { color: #92857d; }
+
+/* ===== Trabajos ===== */
+.pag-trab .lienzo { height: 982px; }
+.trab-1 { left: 175px; top: 64px; width: 331px; height: 397px; }
+.trab-1 img { width: 100.02%; height: 181.51%; left: -0.01%; top: -34.77%; }
+.trab-2 { left: 610px; top: 59px; width: 316px; height: 394.503px; }
+.trab-2 img { width: 101.53%; height: 175.53%; left: -1.53%; top: -32.77%; }
+.trab-3 { left: 1030px; top: 66px; width: 318px; height: 400px; }
+.trab-3 img { width: 176.46%; height: 210.11%; left: -12.31%; top: -31.23%; }
+.trab-4 { left: 177px; top: 491px; width: 331px; height: 426px; }
+.trab-4 img { width: 100%; height: 167.9%; left: 0; top: -32.23%; }
+.trab-5 { left: 609px; top: 491px; width: 316px; height: 423.321px; }
+.trab-5 img { width: 129.37%; height: 209.48%; left: -13.01%; top: -54.86%; }
+.trab-6 { left: 28px; top: 24px; }
+.trab-6 { color: #000000; }
+
+/* ===== Contacto  ===== */
+.pag-contacto .lienzo { height: 982px; }
+.contacto-1 { left: 756px; top: 149px; }
+.contacto-2 { left: 756px; top: 332px; width: 846px; }
+.contacto-3 { left: 760px; top: 521px; width: 846px; }
+.contacto-4 { left: 68px; top: 46px; }
+.contacto-4 { color: #879881; }
+
+/* ===== Dibujos ===== */
+.pag-dib .lienzo { height: 2923px; }
+.dib-1 { left: 19px; top: 30px; }
+.dib-1 { color: #92857d; }
+.dib-2 { left: 440px; top: 101px; width: 300px; }
+.dib-3 { left: 123px; top: 202px; width: 633px; height: 1117px; }
+.dib-4 { left: 590px; top: 1367px; width: 822px; height: 1461px; }
+
+/* ===== Entrejuegos  ===== */
+.pag-ej .lienzo { height: 6217px; }
+.ej-1 { left: 410px; top: 79px; width: 326px; }
+.ej-2 { left: 94px; top: 160px; width: 631px; height: 753px; }
+.ej-2 img { width: 100.02%; height: 181.51%; left: -0.01%; top: -34.77%; }
+.ej-3 { left: 752px; top: 368px; width: 703px; }
+.ej-4 { left: 410px; top: 955px; width: 650px; }
+.ej-5 { left: 101px; top: 1437px; width: 1057px; height: 692px; }
+.ej-5 img { width: 103.97%; height: 105.89%; left: 0; top: -5.83%; }
+.ej-6 { left: 623px; top: 2201px; width: 787px; height: 1023px; }
+.ej-6 img { width: 100.02%; height: 115.44%; left: -0.01%; top: -8.8%; }
+.ej-7 { left: 114px; top: 3296px; width: 604px; height: 681px; }
+.ej-7 img { width: 104.98%; height: 201.38%; left: -4.97%; top: -50.62%; }
+.ej-8 { left: 738px; top: 4017px; width: 619px; height: 599px; }
+.ej-8 img { width: 100%; height: 223.67%; left: 0; top: -65.55%; }
+.ej-9 { left: 114px; top: 4656px; width: 722px; height: 806px; }
+.ej-9 img { width: 111.67%; height: 216.59%; left: 0; top: -49.32%; }
+.ej-10 { left: 146px; top: 5549px; width: 377px; height: 365px; }
+.ej-10 img { width: 100%; height: 223.3%; left: 0; top: -39.51%; }
+.ej-11 { left: 529px; top: 5549px; width: 357px; height: 365px; }
+.ej-11 img { width: 100%; height: 211.71%; left: 0; top: -53.85%; }
+.ej-12 { left: 892px; top: 5549px; width: 398px; height: 365px; }
+.ej-12 img { width: 109.65%; height: 259.09%; left: 0; top: -83.07%; }
+.ej-13 { left: 708px; top: 6001px; width: 540px; }
+.ej-14 { left: 31px; top: 30px; }
+.ej-14 { color: #480c79; }
+
+/* ===== Experiencia lumínica ===== */
+.pag-la .lienzo { height: 5874px; }
+.la-1 { left: 400.5px; top: 109px; width: 563px; }
+.la-2 { left: 119px; top: 192px; width: 624px; height: 744px; }
+.la-2 img { width: 100%; height: 181.17%; left: 0; top: -39.38%; }
+.la-3 { left: 809px; top: 486px; width: 703px; }
+.la-4 { left: 743px; top: 1069px; width: 587px; height: 1024px; }
+.la-5 { left: 279px; top: 2175px; width: 464px; height: 756px; }
+.la-6 { left: 743px; top: 3017px; width: 626px; height: 757px; }
+.la-6 img { width: 106.99%; height: 191.67%; left: -6.99%; top: -47.99%; }
+.la-7 { left: 167px; top: 3855px; width: 774px; height: 773px; }
+.la-7 img { width: 128.99%; height: 193.87%; left: -14.67%; top: -49.74%; }
+.la-8 { left: 167px; top: 4715px; width: 1202px; height: 828px; }
+.la-8 img { width: 103.43%; height: 100.09%; left: 0; top: -0.04%; }
+.la-9 { left: 768px; top: 5630px; width: 540px; }
+.la-10 { left: 33px; top: 27px; }
+.la-10 { color: #480c79; }
+
+/* ===== Silla plegable FRÖSVI  ===== */
+.pag-si .lienzo { height: 2833px; }
+.si-1 { left: 462.5px; top: 128px; width: 563px; }
+.si-2 { left: 143px; top: 209px; width: 661px; height: 748px; }
+.si-2 img { width: 100%; height: 191.24%; left: 0; top: -43.5%; }
+.si-3 { left: 1081px; top: 497px; width: 650px; }
+.si-4 { left: 804px; top: 1045px; width: 576px; height: 1024px; }
+.si-5 { left: 347px; top: 2127px; width: 457px; height: 506px; }
+.si-5 img { width: 100%; height: 195.37%; left: 0; top: -44.29%; }
+.si-6 { left: 957px; top: 2598px; width: 270px; }
+.si-7 { left: 59px; top: 46px; }
+.si-7 { color: #480c79; }
+
+/* ===== Candelabro de cerámica  ===== */
+.pag-ca .lienzo { height: 4889px; }
+.ca-1 { left: 450.5px; top: 115px; width: 563px; }
+.ca-2 { left: 145px; top: 189px; width: 611px; height: 788px; }
+.ca-2 img { width: 100%; height: 167.9%; left: 0; top: -32.23%; }
+.ca-3 { left: 1105px; top: 505px; width: 650px; }
+.ca-4 { left: 756px; top: 1041px; width: 565px; height: 1004px; }
+.ca-5 { left: 145px; top: 2115px; width: 683px; height: 736px; }
+.ca-5 img { width: 112.24%; height: 138.86%; left: -12.24%; top: -19.43%; }
+.ca-6 { left: 680px; top: 2949px; width: 658px; height: 848px; }
+.ca-6 img { width: 127.96%; height: 214.94%; left: -13.98%; top: -60.08%; }
+.ca-7 { left: 263px; top: 3895px; width: 565px; height: 742px; }
+.ca-7 img { width: 100%; height: 164.84%; left: 0; top: -30.08%; }
+.ca-8 { left: 51px; top: 31px; }
+.ca-8 { color: #480c79; }
+
+/* ===== Revista 081  ===== */
+.pag-re .lienzo { height: 5312px; }
+.re-1 { left: 471.5px; top: 119px; width: 563px; }
+.re-2 { left: 126px; top: 181px; width: 348.338px; height: 888.378px; }
+.re-2 img { width: 113.59%; height: 106.78%; left: -6.21%; top: -4.67%; }
+.re-3 { left: 468.49px; top: 181px; width: 349.507px; height: 888.378px; }
+.re-3 img { width: 113.21%; height: 106.78%; left: -5.35%; top: -4.67%; }
+.re-4 { left: 862px; top: 461px; width: 650px; }
+.re-5 { left: 862px; top: 1012px; width: 426px; }
+.re-6 { left: 818px; top: 1336px; width: 650px; }
+.re-7 { left: 182px; top: 1336px; width: 447px; height: 584px; }
+.re-8 { left: 676px; top: 1628px; width: 677px; height: 1512px; }
+.re-8 img { width: 100%; height: 107.34%; left: 0; top: -4.17%; }
+.re-9 { left: 818px; top: 3374px; width: 650px; }
+.re-10 { left: 170px; top: 3353px; width: 471px; height: 596px; }
+.re-11 { left: 712px; top: 3651px; width: 630px; height: 1518px; }
+.re-11 img { width: 107.46%; height: 106.92%; left: 0; top: -3.62%; }
+.re-12 { left: 27px; top: 27px; }
+.re-12 { color: #480c79; }
+
+/* ===== Móvil de Chuncho  ===== */
+.pag-ch .lienzo { height: 9753px; }
+.ch-1 { left: 524.5px; top: 97px; width: 563px; }
+.ch-2 { left: 81px; top: 159px; width: 887px; height: 762px; }
+.ch-2 img { width: 115.13%; height: 200.89%; left: -2.82%; top: -22%; }
+.ch-3 { left: 1001px; top: 328px; width: 650px; }
+.ch-4 { left: 904px; top: 1080px; width: 546px; height: 971px; }
+.ch-5 { left: 202px; top: 2128px; width: 689px; height: 983px; }
+.ch-5 img { width: 104.21%; height: 158.07%; left: -4.21%; top: -30.23%; }
+.ch-6 { left: 704px; top: 3165px; width: 746px; height: 753px; }
+.ch-6 img { width: 101.83%; height: 218.28%; left: -1.83%; top: -53.28%; }
+.ch-7 { left: 158px; top: 3972px; width: 733px; height: 748px; }
+.ch-7 img { width: 100%; height: 212.06%; left: 0; top: -51.26%; }
+.ch-8 { left: 666px; top: 4824px; width: 720px; height: 871px; }
+.ch-8 img { width: 104.22%; height: 186.49%; left: -2.36%; top: -46.67%; }
+.ch-9 { left: 171px; top: 5711px; width: 720px; height: 809px; }
+.ch-9 img { width: 106.36%; height: 204.85%; left: -2.64%; top: -57.12%; }
+.ch-10 { left: 704px; top: 6601px; width: 586px; height: 836px; }
+.ch-10 img { width: 102.9%; height: 155.91%; left: -2.9%; top: -24.01%; }
+.ch-11 { left: 351px; top: 7507px; width: 540px; height: 960px; }
+.ch-12 { left: 730px; top: 8548px; width: 533px; height: 960px; }
+.ch-13 { left: 756px; top: 9589px; width: 540px; }
+.ch-14 { left: 27px; top: 26px; }
+.ch-14 { color: #480c79; }
+
+/* =================
+   VERSIÓN MOBILE 
+   ================== */
+@media (max-width: 768px) {
+
+  :root { --lienzo: 428px; }
+
+  /* Comunes */
+  .logo, .logo.con-sombra { width: 66px; color: var(--negro); filter: none; }
+  .proy-titulo { font-size: 20px; font-weight: 400; letter-spacing: 0; width: 228px; }
+  .proy-desc, .proy-nota { font-size: 20px; }
+
+  /* HOME */
+  .pag-home .lienzo { height: 956px; }
+  .home-1 { left: 0; top: 181px; width: 428px; height: auto; font-size: 40px; }
+  .home-2 { left: -8px;  top: 418px; width: 151px; height: 145px; }
+  .home-3 { left: 195px; top: 480px; width: 157px; height: 171px; }
+  .home-4 { left: 131px; top: 431px; width: 114px; height: 163px; }
+  .home-5 { left: 264px; top: 405px; width: 152px; height: 178px; }
+  .home-gema-1 { --desde: 0px;   --hasta: 60px; }
+  .home-gema-2 { --desde: 40px;  --hasta: -20px; }
+  .home-gema-3 { --desde: -10px; --hasta: 50px; }
+  .home-gema-4 { --desde: 50px;  --hasta: -10px; }
+
+  /* SOBRE MÍ */
+  .pag-sobre .lienzo { height: 1834px; }
+  .sobre-1 { left: 214px; top: 48px; font-size: 40px; }
+  .sobre-marco { left: 59px; top: 114px; width: 287px; height: 213px; padding: 4px 8px 5px; }
+  .sobre-2 { left: 214px; top: 353px; width: 336px; font-size: 20px; }
+  .sobre-3 { left: 22px;  top: 493px; }
+  .sobre-4 { left: 191px; top: 539px; }
+  .sobre-5 { left: 250px; top: 591px; }
+  .sobre-6 { left: 301px; top: 635px; }
+  .sobre-7 { left: 250px; top: 678px; }
+  .sobre-8 { left: 45px;  top: 785px; width: 370px; font-size: 20px; white-space: normal; }
+  .sobre-9 { left: 126px; top: 1001px; width: 290px; font-size: 20px; white-space: normal; }
+  .sobre-10 { left: 27px; top: 1138px; font-size: 20px; }
+  .sobre-11 { left: 203px; top: 1244px; }
+  .sobre-12 { left: 241px; top: 1276px; }
+  .sobre-13 { left: 318px; top: 1315px; }
+  .sobre-14 { left: 221px; top: 1400px; }
+  .sobre-15 { left: 119px; top: 1439px; }
+  .sobre-16 { left: 274px; top: 1354px; }
+  .sobre-17 { left: 74px;  top: 1473px; }
+  .sobre-18 { left: 49px;  top: 1519px; }
+  .sobre-19 { left: 15px;  top: 1575px; }
+  .sobre-20 { left: 15px;  top: 1655px; }
+  .sobre-21 { left: 15px;  top: 1735px; }
+  .sobre-22 { left: 22px;  top: 17px; }
+
+  /* TRABAJOS */
+  .pag-trab .lienzo { height: 956px; }
+  .trab-1 { left: 31px;  top: 126px; width: 168px; height: 200px; }
+  .trab-2 { left: 226px; top: 126px; width: 160px; height: 200px; }
+  .trab-3 { left: 30px;  top: 352px; width: 167px; height: 210px; }
+  .trab-4 { left: 226px; top: 352px; width: 163px; height: 210px; }
+  .trab-5 { left: 31px;  top: 600px; width: 166px; height: 223px; }
+  .trab-081 { left: 221px; top: 600px; width: 176px; height: 230px; }
+  .trab-6 { left: 13px;  top: 22px; }
+
+  /* CONTACTO */
+  .pag-contacto .lienzo { height: 956px; }
+  .fondo-recorte img { left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; }
+  .contacto-recuadro { left: 36px; top: 324px; width: 365px; height: 309px; }
+  .contacto-1 { left: 214px; top: 130px; font-size: 40px; }
+  .contacto-2 { left: 214px; top: 366px; width: 428px; font-size: 20px; }
+  .contacto-3 { left: 214px; top: 491px; width: 428px; font-size: 20px; }
+  .contacto-linea-1 { left: 73px;  top: 427px; width: 283px; }
+  .contacto-linea-2 { left: 137px; top: 554px; width: 151px; }
+  .contacto-4 { left: 13px; top: 27px; }
+
+  /* DIBUJOS */
+  .pag-dib .lienzo { height: 1558px; }
+  .dib-1 { left: 24px; top: 24px; }
+  .dib-2 { left: 214px; top: 53px; font-size: 40px; }
+  .dib-3 { left: 30px; top: 127px; width: 369px; height: 652px; }
+  .dib-4 { left: 30px; top: 831px; width: 367px; height: 653px; }
+
+  /* ENTREJUEGOS */
+  .pag-ej .lienzo { height: 3739px; }
+  .ej-1  { left: 214px; top: 48px; }
+  .ej-2  { left: 130px; top: 79px;   width: 168px; height: 200px; }
+  .ej-3  { left: 13px;  top: 290px;  width: 401px; font-size: 19px; text-align: center; }
+  .ej-4  { left: 214px; top: 397px;  width: 270px; font-size: 19px; }
+  .ej-instrucciones { left: 18px; top: 501px; width: 392px; font-size: 20px; }
+  .ej-instrucciones br { display: none; }
+  .ej-5  { left: 28px;  top: 960px;  width: 365px; height: 239px; }
+  .ej-6  { left: 171px; top: 1221px; width: 222px; height: 288px; }
+  .ej-7  { left: 28px;  top: 1520px; width: 258px; height: 291px; }
+  .ej-8  { left: 97px;  top: 1834px; width: 312px; height: 302px; }
+  .ej-9  { left: 11px;  top: 2152px; width: 334px; height: 373px; }
+  .ej-10 { left: 100px; top: 2541px; width: 309px; height: 300px; }
+  .ej-11 { left: 106px; top: 3155px; width: 303px; height: 310px; }
+  .ej-12 { left: 11px;  top: 2857px; width: 308px; height: 282px; }
+  }
