@@ -1,4 +1,5 @@
 Bitácora 
+GITHUB URL: https://catalinaibarra2-ctrl.github.io/mi-portafolio/index.html
 LINK FIGMA: https://www.figma.com/design/C8ll3cx4dvcGYbk6X9QJTv/Sin-t%C3%ADtulo?node-id=0-1&t=PnmrGY5lfURjayy3-1
 
 Esta era mi bitácora antes de la correción: (mi texto se ve mucho más tímidio entonces recibí comentario de aaron para cambiar eso y sonar decisiva de una vez).
@@ -151,4 +152,5 @@ Creo que no tuve mayores complicaciónes al momento de poner las imagenes o vide
 También recordé que en Figma puedo ver los CSS de partes seleccionadas así que tambíen revisaba esa parte y revisé los códigos que me dió la IA para entender en que fallé o que me faltaba.
 
 Sobre este proyecto reforcé la importancía del Class, dudo que se me olvide luego de haber pasado harto rato viendo que estaba pasando que no se veían hasta que lo noté. También que al momento de seleccionar proyectos me falta crear más cosas que me guste mostrar y crear, tengo muchas ideas guardadas pero nunca me tomo el tiempo de hacerlas y me hubiese gustado ponerlas en el portafolio, así que también fue una motivación para empezar a crearlas. 
+
 También en Figma con las gemas aprendí a crear movimiento a objetos, algo que no había hecho antes y todavía no lo domino mucho pero la pasé super bien en el proceso, era tal cual lo tenía en mi mente desde un inicio y nunca había dibujado piedras a pesar de que me gustan mucho, así que esta oportunidad también me permitió hacerlo y quedé feliz con el resultado :) . 
